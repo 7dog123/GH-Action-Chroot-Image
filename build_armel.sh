@@ -4,7 +4,7 @@ apt install libext2fs2 debootstrap qemu-user-static wget
 fallocate -l 1.8G bullseye.img
 mkfs.ext4 bullseye.img
 mkdir mnt
-mount bulleseye.img mnt/
+mount bullseye.img mnt/
 cd mnt
 debootstrap --arch=$buildarch bullseye . http://ftp.de.debian.org/debian
 mount --bind /dev dev
