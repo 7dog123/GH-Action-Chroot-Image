@@ -1,12 +1,12 @@
 #!/bin/bash
 buildarch=armel
 apt install libext2fs2 debootstrap qemu-user-static wget
-fallocate -l 1.8G bullseye.img
-mkfs.ext4 bullseye.img
+fallocate -l 1.8G sid.img
+mkfs.ext4 sid.img
 mkdir mnt
-mount bullseye.img mnt/
+mount sid.img mnt/
 cd mnt
-debootstrap --arch=$buildarch bullseye . http://ftp.de.debian.org/debian
+debootstrap --arch=$buildarch sid . http://ftp.de.debian.org/debian
 mount --bind /dev dev
 mount --bind /proc proc
 mount --bind /sys sys
@@ -16,5 +16,5 @@ umount proc
 umount sys
 cd ..
 umount mnt
-gzip bullseye.img
-mv bullseye.img.gz bullseye_armel.img.gz
+gzip sid.img
+mv sid.img.gz sid_armel.img.gz
