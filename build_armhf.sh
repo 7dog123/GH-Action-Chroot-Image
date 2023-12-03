@@ -1,5 +1,5 @@
 #!/bin/bash
-buildarch=armel
+buildarch=armhf
 apt install libext2fs2 debootstrap qemu-user-static wget
 fallocate -l 1.8G sid.img
 mkfs.ext4 sid.img
@@ -17,4 +17,4 @@ umount sys
 cd ..
 umount mnt
 gzip sid.img
-mv sid.img.gz sid_armel.img.gz
+mv sid.img.gz sid_armehf.img.gz
